@@ -1,0 +1,554 @@
+@import './common.css';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.login-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #d9e5f3;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 85px;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: white;
+    padding: 1rem 1.5rem;
+    box-shadow: 0px 4px 18px -6px #0057ff;
+}
+
+.index header {
+    justify-content: space-between;
+    padding: 1rem 2rem;
+
+    &>a {
+        font-size: 1.8rem;
+        color: #134077;
+        text-decoration: none;
+
+        &:hover {
+            color: #0057ff;
+        }
+    }
+}
+
+h3 {
+    margin: 1rem auto;
+    color: #134077;
+    font-size: 32px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    height: calc(100vh - 85px);
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1rem;
+    a[href="admin-view.php"],
+    a[href="index.php"] {
+        margin-right:auto;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight:semibold;
+        color:#2d224c;
+        transition:all 0.2s ease-in-out;
+        &:hover {
+            color:#0057ff;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    list-style: none;
+
+    & .events {
+        padding: 1.5rem;
+        margin: 1rem;
+        background: white;
+        border: 1px solid #134077;
+        border-radius: 19px;
+
+        &>h4 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        &>p {
+            font-size: 20px;
+            color: #cccccc;
+        }
+
+        &>input {
+            display: inline-block;
+            width: 100%;
+            margin: 1rem auto;
+            padding: 0.5rem 0;
+            border: 0;
+            background-color: #0057ff;
+            border-radius: 11px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 20px;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+.form {
+    width: 562px;
+    border-radius: 19px;
+    border: 1px solid #134077;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0.5rem;
+
+    & input {
+        width: 85%;
+        margin-bottom: 0.75rem;
+        border: 0;
+        border-bottom: 1px solid #2d224c;
+        padding: 4px;
+        font-size: 13px;
+
+        &:focus {
+            outline: none;
+            border-color: #0057ff;
+        }
+    }
+
+    & label {
+        width: 85%;
+        margin: 0 auto 0.4rem;
+    }
+
+    & label[for="password"] {
+        position: relative;
+
+        & .fa-eye {
+            position: absolute;
+            right: 0;
+            bottom: -26px;
+            cursor: pointer;
+        }
+    }
+
+    & input[type="submit"] {
+        display: inline-block;
+        width: 85%;
+        padding: 0.9rem 0;
+        margin: 1.5rem auto;
+        border: 0;
+        background-color: #0057ff;
+        border-radius: 11px;
+        color: white;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    & a {
+        font-size: 13px;
+        color: #2d224c;
+        text-decoration: none;
+        text-align: center;
+
+        &>span {
+            text-decoration: underline;
+            font-weight: bold;
+
+            &:hover {
+                color: #0057ff;
+            }
+        }
+    }
+
+    & a[href="forgot_password.php"] {
+        margin-top: 0.8rem;
+
+        &:hover {
+            color: #0057ff;
+        }
+    }
+}
+
+
+
+.row {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    z-index: 3;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+
+
+    .table-responsive {
+        height: 350px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    td.d-flex {
+        display: flex;
+
+        input {
+            margin: 0 0.2rem;
+            padding: 0.3rem 0.5rem;
+            background-color: rgb(225, 198, 46);
+            border-radius: 12px;
+            border: 0;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: transparent;
+                color: rgb(225, 198, 46);
+            }
+        }
+
+        input[value="Cancella"] {
+            background-color: rgb(237, 30, 30);
+            transition: all 0.25s ease-in-out;
+
+            &:hover {
+                background-color: transparent;
+                color: rgb(237, 30, 30);
+            }
+        }
+
+        input[value="INDIETRO"] {
+            background-color: rgb(70, 69, 69);
+            transition: all 0.25s ease-in-out;
+
+            &:hover {
+                background-color: white;
+                color: rgb(70, 69, 69);
+            }
+        }
+
+        input[value="SI"] {
+            background-color: rgb(71, 199, 71);
+            color: white;
+
+            &:hover {
+                color: rgb(71, 199, 71);
+                background-color: white;
+            }
+        }
+
+    }
+
+    .edit-modal {
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        display: none;
+
+        .modal-body {
+            width: 40%;
+            background: rgba(0, 0, 0, 0.763);
+            display: flex;
+            flex-direction: column;
+            border-radius: 16px;
+
+            input {
+                border: 0;
+                border-bottom: 1px solid #2d224c;
+                margin: 0 1rem 0.5rem;
+                background: white;
+                color: black;
+
+                &:hover {
+                    background-color: white;
+                    color: #0057ff;
+                }
+
+                &:focus {
+                    outline: none;
+                    border-color: #0057ff;
+                }
+            }
+
+            h3 {
+                color: white
+            }
+        }
+    }
+
+    form .modal {
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        display: none;
+
+        .modal-body {
+            width: 20%;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.763);
+            text-align: center;
+
+            form {
+                display: flex;
+
+            }
+
+            h3 {
+                color: white
+            }
+        }
+
+    }
+
+    .form.admin {
+        padding: 0;
+        background: transparent;
+        width:auto;
+
+        .description {
+            width: 63%;
+            text-align: left;
+            margin: 0.5rem;
+
+            textarea {
+                width: 95%;
+                height: 60px;
+                resize: none;
+                padding: 0.2rem;
+
+                &:focus {
+                    outline: none;
+                    border-color: #0057ff;
+                }
+            }
+        }
+
+        input:not(input[type="submit"]) {
+            border: 0;
+            border-bottom: 1px solid #2d224c;
+            margin: 0 1rem 0.5rem;
+            background: transparent;
+
+            &:focus {
+                outline: none;
+                border-color: #0057ff;
+            }
+        }
+
+        input[type="submit"] {
+            width: 60%;
+        }
+
+    }
+}
+
+.login.form {
+    padding: 3rem 0;
+    width: 462px;
+}
+
+@media screen and (max-width:594px) {
+    .signup.form {
+        width: 100%;
+
+        & input[type="submit"] {
+            font-size: 0.9rem;
+        }
+
+        & a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        & span {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .login.form {
+        width: 100%;
+
+        & input[type="submit"] {
+            font-size: 0.8rem;
+        }
+
+        & a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        & span {
+            margin-top: 10px;
+        }
+    }
+}
+
+
+
+/* #region graphic */
+
+.wave {
+    width: 100%;
+    position: absolute;
+}
+
+.white {
+    bottom: -25px;
+}
+
+.middle {
+    bottom: -70px;
+}
+
+.background {
+    bottom: 0;
+}
+
+.circle {
+    position: absolute;
+    z-index: 1;
+}
+
+.circle.left {
+    left: 0;
+}
+
+.circle.right {
+    right: 40px;
+}
+
+.rocket {
+    position: absolute;
+    bottom: 2rem;
+    right: 10rem;
+    z-index: 1;
+}
+
+/* #endregion graphic*/
+
+
+/* Admin */
+#admin {
+    display:none
+}
+tr:not(th:last-child) {
+    text-align: left;
+
+    th,
+    td {
+        padding: 0.5rem 1rem;
+    }
+
+    th:last-child {
+        text-align: center;
+    }
+}
+
+table a {
+    text-decoration: none;
+    cursor: pointer;
+}
+table {
+
+    tr > th:nth-child(2), tr th:nth-child(3),
+    tr > td:nth-child(2), tr > td:nth-child(3) {
+        display:none;
+    }
+}
+
+p.error {
+    color:red;
+    font-weight:bold;
+    font-size:1rem;
+}
+@media screen and (min-width:500px) {
+    #admin {
+        display:block;
+    }
+    .row {
+        tr th:nth-child(3),
+        tr > td:nth-child(3) {
+            display:table-cell;
+        }
+        td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+@media screen and (min-width:1300px) {
+    .row {
+        flex-direction: row;
+        table {
+            table-layout: fixed;
+            width:700px;
+            tr > th:nth-child(2), 
+            tr > td:nth-child(2) {
+                display:table-cell;
+            }
+
+        }
+
+        .form.admin {
+            width:562px
+        }
+    }
+}
