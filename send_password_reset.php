@@ -40,8 +40,8 @@ if ($result) {
         $mail->Host = 'smtp.mailgun.org';
         $mail->SMTPAuth = true;
         $mail->Port = 587;
-        $mail->Username  = 'postmaster@sandbox9f1aefb403344754a7d7167c1a1a1695.mailgun.org';
-        $mail->Password = $pass_mailgun;
+        $mail->Username  = $username_mailgun;
+        $mail->Password = $new_pass;
         
         //Set sender and receiver
         $mail->setFrom('info@edusogno.com', 'Edusogno'); // Mittente
@@ -65,13 +65,6 @@ if ($result) {
     } catch(Exception $e) {
         echo "Errore nell'invio della mail: {$mail->ErrorInfo}";
     }
-    // Send the email using Mailgun
-    /*     $mailgun->messages()->send($domain, [
-        'from' => 'info@edusogno.com',
-        'to' => $recipientEmail,
-        'subject' => $subject,
-        'html' => $message,
-    ]); */
 }  else {
     echo "Errore nell'aggiornamento del token nel database: " . $connection->$e->getMessage();
 }
